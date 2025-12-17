@@ -247,6 +247,28 @@ To add identifiers programmatically, use the `WhitelistService.addIdentifier()` 
 
 ## Troubleshooting
 
+### Gradle Wrapper Issues
+
+**Error: Could not find or load main class org.gradle.wrapper.GradleWrapperMain**
+
+This means the `gradle-wrapper.jar` file is missing. Fix it by running:
+
+```bash
+# Option 1: Download the wrapper jar directly
+curl -L https://raw.githubusercontent.com/gradle/gradle/v8.4.0/gradle/wrapper/gradle-wrapper.jar -o gradle/wrapper/gradle-wrapper.jar
+
+# Option 2: If you have Gradle installed, regenerate the wrapper
+gradle wrapper
+
+# Option 3: Use your system Gradle (if installed)
+gradle :authentication-service:bootRun
+```
+
+After downloading, verify it works:
+```bash
+./gradlew --version
+```
+
 ### Kafka Connection Issues
 - Ensure Docker containers are running: `docker-compose ps`
 - Check Kafka logs: `docker-compose logs kafka`
