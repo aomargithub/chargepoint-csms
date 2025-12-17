@@ -25,12 +25,13 @@ The system consists of three main components:
 - Docker and Docker Compose
 - Gradle 7.6+ (or use Gradle Wrapper included in the project)
 
-**Note**: If the Gradle wrapper jar (`gradle/wrapper/gradle-wrapper.jar`) is missing, you can generate it by running:
+**Note**: If the Gradle wrapper jar (`gradle/wrapper/gradle-wrapper.jar`) is missing, you can download it:
 ```bash
-# If you have Gradle installed
-gradle wrapper
+# Download the wrapper jar (already included in the project)
+curl -L https://raw.githubusercontent.com/gradle/gradle/v8.4.0/gradle/wrapper/gradle-wrapper.jar -o gradle/wrapper/gradle-wrapper.jar
 
-# Or download it manually from the URL specified in gradle/wrapper/gradle-wrapper.properties
+# Or if you have Gradle installed, generate it:
+gradle wrapper
 ```
 
 ## Setup and Running
