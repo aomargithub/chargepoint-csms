@@ -36,7 +36,7 @@ class AuthorizationProcessorTest {
         verify(kafkaTemplate).send(
             eq("authorization-responses"),
             eq("test-request-1"),
-            argThat { it.authorizationStatus == AuthorizationStatus.Accepted }
+            argThat { response -> response.authorizationStatus == AuthorizationStatus.Accepted }
         )
     }
     
@@ -53,7 +53,7 @@ class AuthorizationProcessorTest {
         verify(kafkaTemplate).send(
             eq("authorization-responses"),
             eq("test-request-2"),
-            argThat { it.authorizationStatus == AuthorizationStatus.Invalid }
+            argThat { response -> response.authorizationStatus == AuthorizationStatus.Invalid }
         )
     }
     
@@ -71,7 +71,7 @@ class AuthorizationProcessorTest {
         verify(kafkaTemplate).send(
             eq("authorization-responses"),
             eq("test-request-3"),
-            argThat { it.authorizationStatus == AuthorizationStatus.Invalid }
+            argThat { response -> response.authorizationStatus == AuthorizationStatus.Invalid }
         )
     }
     
@@ -88,7 +88,7 @@ class AuthorizationProcessorTest {
         verify(kafkaTemplate).send(
             eq("authorization-responses"),
             eq("test-request-4"),
-            argThat { it.authorizationStatus == AuthorizationStatus.Rejected }
+            argThat { response -> response.authorizationStatus == AuthorizationStatus.Rejected }
         )
     }
     
@@ -105,7 +105,7 @@ class AuthorizationProcessorTest {
         verify(kafkaTemplate).send(
             eq("authorization-responses"),
             eq("test-request-5"),
-            argThat { it.authorizationStatus == AuthorizationStatus.Unknown }
+            argThat { response -> response.authorizationStatus == AuthorizationStatus.Unknown }
         )
     }
 }
